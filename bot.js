@@ -107,7 +107,12 @@ bot.on("presence", function(dataObject){
 		bot.sendMessage(dataObject.server.defaultChannel, "*" + dataObject.user + " is now online.*");
 	}
 	if(dataObject.status === "offline"){
-		bot.sendMessage(dataObject.server.defaultChannel, "*" + dataObject.user + " went offline.*");
+		var ifBru = dataObject.server.defaultChannel.getMessage("author", dataObject.user).content;
+		if (ifBru.indexOf("bru") >= 0 || ifBru.indexOf("bye") >= 0 || ifBru.indexOf("night") >= 0 || ifBru.indexOf("brunight") >= 0){
+			bot.sendMessage(dataObject.server.defaultChannel, "*" + dataObject.user + " went offline.*");
+		}else{
+			bot.sendMessage(dataObject.server.defaultChannel, "*" + dataObject.user + " went offline and forgot to say bye.*");
+		}
 	}
 })
 
