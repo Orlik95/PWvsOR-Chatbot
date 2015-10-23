@@ -116,4 +116,4 @@ bot.on("presence", function(dataObject){
 	}
 })
 
-bot.login("szkieletorpp@gmail.com", "169806");
+bot.login("szkieletortester@gmail.com", "169806");
